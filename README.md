@@ -1,32 +1,43 @@
-## demo app - developing with Docker
+## App Node de ejemplo usando Docker
 
-This demo app shows a simple user profile app set up using 
-- index.html with pure js and css styles
-- nodejs backend with express mode
-- mongodb for data storage
+Esta app muestra y permite editar un perfil de usuario.
+Incluye:
+- Un archivo index.html con js y css inline
+- Un archivo server.js como backend nodejs usando express
+- Una conexión mongodb para guardar los datos
 
-All components are docker-based
+## 3 Componentes
+El proyecto podría funcionar si instalamos Node, MongoDB y Mongo Express en nuestro servidor local.
+Pero la intención es no instalar ninguno de ellos y que funcione gracias a Docker.
 
-#### To start the application
+Para ello creamos 3 contenedores:
+- Un contenedor Node que contiene el código de nuestra app
+- Un contenedor de MongoDB asociado a un volumen
+- Y uno de Mongo Express para consultar nuestra BD a través de una UI
 
-Step 1: start mongodb and mongo-express
+## Cómo iniciar el proyecto
 
-    docker-compose -f docker-compose.yaml up
+### Usando comandos Docker
+
+Puedes revisar el archivo txt incluido en el repositorio y ejecutar cada uno de los comandos.
+
+Con estos comandos puedes:
+- Crear una imagen basada en Node con el código de la app.
+- Iniciar un contenedor de mongo y mongo-express
+- Definir las credenciales de mongo como variables de entorno 
+- Configurar Mongo Express para que se conecte a Mongo DB
+- Asociar los contenedores a una Network
+- Exponer puertos para que estés disponibles en nuestro Host
+
+### Usando Docker Compose
+
+O bien puedes hacer todo lo anterior ejecutando un solo comando:
+
+    docker-compose up
     
-_You can access the mongo-express under localhost:8080 from your browser_
-    
-Step 2: in mongo-express UI - create a new database "my-db"
+## Una vez iniciado el proyecto
 
-Step 3: in mongo-express UI - create a new collection "users" in the database "my-db"       
+- Puedes acceder a mongo-express desde localhost:8081 en tu navegador.
+  Desde allí puedes crear una base de datos "my-db" y una colección "users".       
     
-Step 4: start node server 
-
-    node server.js
-    
-_You can access the application under localhost:3000 from your browser_
-
-#### To build a docker image from the application
-
-    docker build -t my-app:1.0 .       
-    
-The dot "." at the end of the command denotes location of the Dockerfile.
+- Puedes acceder a la aplicación desde localhost:8080 en tu navegador.
