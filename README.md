@@ -27,7 +27,7 @@ Con estos comandos puedes:
 - Definir las credenciales de mongo como variables de entorno 
 - Configurar Mongo Express para que se conecte a Mongo DB
 - Asociar los contenedores a una Network
-- Exponer puertos para que estés disponibles en nuestro Host
+- Exponer puertos para que estén disponibles en nuestro Host
 
 ### Usando Docker Compose
 
