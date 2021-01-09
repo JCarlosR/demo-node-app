@@ -19,7 +19,7 @@ docker run
 mongo-express
 
 docker run 
--p 8081:3000
+-p 8080:3000
 my-node-app:1.0
 
 
